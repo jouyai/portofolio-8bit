@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+  @apply font-retro bg-skyretro text-black;
+}
+
+.pixelated {
+  image-rendering: pixelated;
+}
+
+@keyframes fade {
+  from { opacity: 1; }
+  to { opacity: 0; display: none; }
+}
+
+.animate-fade {
+  animation: fadeOut 0.6s ease-in-out forwards;
+  animation-delay: 1.2s;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; display: none; }
+}
+
+.glitch {
+  position: relative;
+  color: #00ff00;
+  font-family: 'VT323', monospace;
+}
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  color: #00ff00;
+  background: black;
+}
+.glitch::before {
+  top: -1px;
+  animation: glitchTop 1s infinite linear alternate-reverse;
+}
+.glitch::after {
+  top: 1px;
+  animation: glitchBottom 1s infinite linear alternate-reverse;
+}
+@keyframes glitchTop {
+  0% { clip: rect(0, 9999px, 0, 0); }
+  100% { clip: rect(0, 9999px, 4px, 0); }
+}
+@keyframes glitchBottom {
+  0% { clip: rect(0, 9999px, 0, 0); }
+  100% { clip: rect(2px, 9999px, 5px, 0); }
+}

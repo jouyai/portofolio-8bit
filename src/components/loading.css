@@ -1,0 +1,38 @@
+.loading-screen {
+  background-color: black;
+  color: #00ff00;
+  font-family: 'VT323', monospace;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.loading-text {
+  font-size: 24px;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+.character-container {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+.character-pixel {
+  width: 16px;
+  height: 16px;
+  background-color: #00ff00;
+  position: absolute;
+  bottom: 0;
+  animation: walk 1s steps(2) infinite;
+}
+
+@keyframes walk {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(64px); }
+}
