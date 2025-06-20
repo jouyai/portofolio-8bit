@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import spriteDev from "../assets/sprite_dev.png";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const [isTalking, setIsTalking] = useState(false);
@@ -65,15 +66,20 @@ export default function Home() {
         Building powerful software in pixel precision. Turning coffee and bytes into clean, scalable systems.
       </motion.p>
 
-      <motion.a
-        href="/projects"
-        className="mt-6 px-4 py-2 border border-green-300 text-green-300 hover:bg-green-300 hover:text-black font-pixel transition-all duration-300"
+      <motion.div
+        className="mt-6"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2 }}
       >
-        View My Projects →
-      </motion.a>
+        <Link
+          to="/projects"
+          className="px-4 py-2 border border-green-300 text-green-300 hover:bg-green-300 hover:text-black font-pixel transition-all duration-300 inline-block"
+        >
+          View My Projects →
+        </Link>
+      </motion.div>
+
     </div>
   );
 }
